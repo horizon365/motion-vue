@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    preset: 'vercel',
+    preset: 'cloudflare-pages',
   },
   experimental: {
     payloadExtraction: false,
