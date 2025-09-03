@@ -3,19 +3,19 @@ title: Gesture
 navigation.icon: 'lucide:hand'
 ---
 
-Motion provides a set of gesture controls that allow you to create interactive animations.
+动作提供了一套手势控制，允许您创建交互式动画。
 
-## Hover
+## 悬停
 
-`Motion` provides a `hover` prop that allows you to animate the element when the mouse hovers over it.
+`运动` 提供了一个 `悬停` 属性，允许您在鼠标悬停时对元素进行动画处理。
 
 <ComponentPreview name="hover" />
 
-### Hover event
+### 悬停事件
 
 `hoverStart`
 
-Callback function that fires when the mouse hovers over the element. Provided the triggering `MouseEvent`.
+回调函数，当鼠标悬停在元素上时触发。提供触发 `MouseEvent`。
 
 ```vue
   <Motion
@@ -25,7 +25,7 @@ Callback function that fires when the mouse hovers over the element. Provided th
 
 `hoverEnd`
 
-Callback function that fires when the mouse leaves the element. Provided the triggering `MouseEvent`.
+回调函数，当鼠标离开元素时触发。提供触发 `MouseEvent`。
 
 ```vue
   <Motion
@@ -33,17 +33,17 @@ Callback function that fires when the mouse leaves the element. Provided the tri
   />
 ```
 
-## Press
+## 按
 
-The `Press` gesture control allows you to animate the element when the mouse is pressed.
+The `Press` 手势控制允许您在鼠标按下时对元素进行动画处理。
 
 <ComponentPreview name="press" />
 
-### Press event
+### 按鈕事件
 
 `pressStart`
 
- Callback function that fires when a pointer starts pressing the component. Provided the triggering PointerEvent.
+回调函数，当指针开始按下组件时触发。提供触发的事件。
 
 ```vue
   <Motion
@@ -51,9 +51,9 @@ The `Press` gesture control allows you to animate the element when the mouse is 
   />
 ```
 
-`press`
+`按鈕`
 
-Callback function that fires when a pointer is stops pressing the component and the pointer is still over the component. Provided the triggering `PointerEvent`.
+回调函数，当指针停止按下组件且指针仍在组件上时触发。提供触发事件 `PointerEvent`。
 
 ```vue
   <Motion
@@ -63,7 +63,7 @@ Callback function that fires when a pointer is stops pressing the component and 
 
 `pressCancel`
 
-Callback function that fires when a pointer stops pressing the component and the pointer is no longer over the component. Provided the triggering `PointerEvent`.
+回调函数，当指针停止按下组件且指针不再位于组件上时触发。提供触发事件 `PointerEvent`。
 
 ```vue
   <Motion
@@ -71,11 +71,11 @@ Callback function that fires when a pointer stops pressing the component and the
   />
 ```
 
-## Focus
+## 关注
 
-The focus gesture detects when a  component gains or loses focus, following the same rules as the CSS :focus-visible selector.
+焦点手势检测组件何时获得或失去焦点，遵循与 CSS :focus-visible 选择器相同的规则。
 
-You can use `@focus` and `@blur` events, or the `focus` prop to animate when a component has focus. For example:
+您可以使用`@focus`和`@blur`事件，或者使用`focus`属性来在组件获得焦点时进行动画处理。例如：
 
 ```vue
 <Motion
@@ -86,86 +86,87 @@ You can use `@focus` and `@blur` events, or the `focus` prop to animate when a c
 
 ## Pan
 
-The pan gesture recognises when a pointer presses down on a component and moves further than 3 pixels. The pan gesture is ended when the pointer is released. Unlike drag, pan only provides event handlers and does not have props for animation.
+手势识别在指针按下组件并移动超过 3 像素时触发。当指针释放时，手势识别结束。与拖动不同，平移仅提供事件处理器，没有动画属性。
 
-You can use `@pan-start`, `@pan`, `@pan-end` events to handle pan gestures:
+您可以使用`@pan-start`、`@pan`、`@pan-end`事件来处理平移手势：
 
 <ComponentPreview name="pan" />
 
-## Drag
 
-The `Drag` gesture control allows you to drag an element.
+## 拖
+
+拖拽`拖拽`手势控制允许您拖动一个元素。
 
 <ComponentPreview name="drag" />
 
-and can use `whileDrag` to animate the element while dragging.
+可以使用`whileDrag`在拖动元素时进行动画处理。
 
 <ComponentPreview name="while-drag" />
 
-### Drag with constraints
+### 拖动时有限制
 
 <ComponentPreview name="drag-with-constraints" />
 
-### Drag Props
+### 拖拽属性
 
 ::PropsTable
 ---
 data:
-  - name: drag
-    default: "false"
-    type: "boolean | 'x' | 'y'"
-    description: Enable dragging for this element. Set to `false` by default.
-  - name: dragSnapToOrigin
-    default: "false"
-    type: "boolean"
-    description: If `true`, this will snap back to its origin when dragging ends.
-  - name: dragDirectionLock
-    default: "false"
-    type: "boolean"
-    description: If `true`, this will lock dragging to the initially-detected direction. Defaults to `false`.
-  - name: dragPropagation
-    default: "false"
-    type: "boolean"
-    description: Allows drag gesture propagation to child components. Set to `false` by default.
-  - name: dragConstraints
-    default: "false"
-    type: "false | Partial<BoundingBox> | HTMLElement"
-    description: The drag constraints. Set to `false` by default.
-  - name: dragElastic
-    default: "0.5"
-    type: "boolean | number | Partial<BoundingBox>"
-    description: The drag elasticity. Set to `0.5` by default.
-  - name: dragMomentum
-    default: "true"
-    type: "boolean"
-    description: Apply momentum from the pan gesture to the component when dragging finishes. Set to `true` by default.
-  - name: dragTransition
-    type: "InertiaOptions"
-    description: The drag transition. Set to `undefined` by default.
-  - name: dragListener
-    default: "true"
-    type: "boolean"
-    description: By default, if `drag` is defined on a component then an event listener will be attached to automatically initiate dragging when a user presses down on it. Set to `true` by default.
-  - name: dragControls
-    type: "DragControls"
-    description: A drag controls object.
-  - name: onDragStart
-    type: "(event: PointerEvent, info: PanInfo) => void"
-    description: Callback function that fires when dragging starts. Provided the triggering `PointerEvent` and `PanInfo`.
-  - name: onDrag
-    type: "(event: PointerEvent, info: PanInfo) => void"
-    description: Callback function that fires when dragging. Provided the triggering `PointerEvent` and `PanInfo`.
-  - name: onDragEnd
-    type: "(event: PointerEvent, info: PanInfo) => void"
-    description: Callback function that fires when dragging ends.
-  - name: dragDirectionLock
-    type: "(axis: 'x' | 'y') => void"
-    description: Callback function that fires when the drag direction is locked to the x or y axis.
-  - name: onDragTransitionEnd
-    type: "() => void"
-    description: Callback function that fires when drag momentum/bounce transition finishes.
-  - name: onMeasureDragConstraints
-    type: "(constraints: BoundingBox) => BoundingBox | void"
-    description: If `dragConstraints` is set to a React ref, this callback will call with the measured drag constraints.
+- name: drag
+  default: "false"
+  type: "boolean | 'x' | 'y'"
+  description: 启用此元素的拖动功能。默认设置为 `false`。
+- name: dragSnapToOrigin
+  default: "false"
+  type: "boolean"
+  description: 如果 `true`，则在拖动结束时将返回到其原始位置。
+- name: dragDirectionLock
+  default: "false"
+  type: "boolean"
+  description: 如果 `true`，则将拖动锁定到最初检测到的方向。默认为 `false`。
+- name: dragPropagation
+  default: "false"
+  type: "boolean"
+  description: 允许拖动手势传播到子组件。默认设置为 `false`。
+- name: dragConstraints
+  default: "false"
+  type: "false | Partial<BoundingBox> | HTMLElement"
+  description: 拖动限制。默认设置为 `false`。
+- name: dragElastic
+  default: "0.5"
+  type: "boolean | number | Partial<BoundingBox>"
+  description: 拖动弹性。默认设置为 `0.5`。
+- name: dragMomentum
+  default: "true"
+  type: "boolean"
+  description: 在拖动结束时将平移手势的动量应用到组件上。默认设置为 `true`。
+- name: dragTransition
+  type: "InertiaOptions"
+  description: 拖动过渡。默认设置为 `undefined`。
+- name: dragListener
+  default: "true"
+  type: "boolean"
+  description: 默认情况下，如果组件上定义了 `drag`，则将自动附加事件监听器，当用户按下时启动拖动。默认设置为 `true`。
+- name: dragControls
+  type: "DragControls"
+  description: 拖动控制对象
+- name: onDragStart
+  type: "(event: PointerEvent, info: PanInfo) => void"
+  description: 当拖动开始时触发的回调函数。提供触发事件 `PointerEvent` 和 `PanInfo`。
+- name: onDrag
+  type: "(event: PointerEvent, info: PanInfo) => void"
+  description: 当拖动时触发的回调函数。提供触发 `PointerEvent` 和 `PanInfo`。
+- name: onDragEnd
+  type: "(event: PointerEvent, info: PanInfo) => void"
+  description: 拖动结束时触发的回调函数。
+- name: dragDirectionLock
+  type: "(axis: 'x' | 'y') => void"
+  description: 当拖动方向锁定到 x 或 y 轴时触发的回调函数。
+- name: onDragTransitionEnd
+  type: "() => void"
+  description: 当拖动惯性/弹跳过渡结束时触发的回调函数。
+- name: onMeasureDragConstraints
+  type: "(constraints: BoundingBox) => BoundingBox | void"
+  description: 如果 `dragConstraints` 设置为 React 引用，则此回调将使用测量的拖动约束调用。
 ---
 ::

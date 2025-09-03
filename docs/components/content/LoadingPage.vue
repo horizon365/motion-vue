@@ -13,22 +13,22 @@ const features = [
   {
     icon: <Icon name="lucide:wand" />,
     title: 'Declarative Animations',
-    description: 'Simple, declarative syntax for complex animations. Define animations with Vue templates, no imperative code needed.',
+    description: '简洁的声明式语法，用于复杂动画。使用 Vue 模板定义动画，无需 imperative 代码。',
   },
   {
     icon: <Icon name="lucide:layout-grid" />,
     title: 'Layout Animations',
-    description: 'Powerful FLIP animations for smooth layout transitions and shared element animations.',
+    description: '强大的 FLIP 动画，实现平滑的布局过渡和共享元素动画。',
   },
   {
     icon: <Icon name="lucide:hand" />,
     title: 'Gesture Controls',
-    description: 'Rich gesture system for drag, pan, hover and press interactions with spring physics.',
+    description: '丰富的手势系统，支持拖动、平移、悬停和按压交互，具有弹簧物理效果。',
   },
   {
     icon: <Icon name="lucide:box" />,
     title: 'Motion Values',
-    description: 'Dynamic animation values that can be transformed, combined and spring-animated.',
+    description: '可变换、组合和弹簧动画的动态动画值。',
   },
 ]
 
@@ -78,12 +78,12 @@ const floatingItems = [
             v-bind="slideUp"
             class="max-w-2xl mx-auto text-xl text-muted-foreground mb-10 "
           >
-            Build beautiful motion-driven interfaces with Vue.js based on <a
+            构建基于 Vue.js 的美丽动态界面，基于 <a
               href="https://www.framer.com/motion/"
               target="_blank"
               class="text-primary hover:underline"
             >motion</a>.
-            Simple, powerful, and performant animations for modern web applications.
+            简单、强大且性能优异的动画，适用于现代网络应用程序。
           </motion.p>
           <motion.div
             v-bind="slideUp"

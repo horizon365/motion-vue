@@ -4,14 +4,12 @@ navigation.icon: 'lucide:layout-grid'
 description:
 ---
 
-like [Motion React](https://motion.dev/docs/react-layout-animations), you can use layout prop to enable layout animations.
+类似于[运动 React](https://motion.dev/docs/react-layout-animations)，您可以使用 layout 属性来启用布局动画。
 
-## Animate Flex
-
+## 动画弹性
 <ComponentPreview name="layout-flex" />
 
-## Shared layout
-
+## 共享布局
 <ComponentPreview name="shared-layout" />
 
 ::stackblitz
@@ -21,8 +19,8 @@ title: motion-use-spring
 ---
 ::
 
-## Resources
+## 资源
 
-- [Motion React layout animations](https://motion.dev/docs/react-layout-animations)
-- [flip-your-animations](https://aerotwist.com/blog/flip-your-animations/)
-- [framer-motion-layout-animations](https://blog.maximeheckel.com/posts/framer-motion-layout-animations)
+-   [运动 React 布局动画](https://motion.dev/docs/react-layout-animations)
+-   [翻转动画](https://aerotwist.com/blog/flip-your-animations/)
+-   [framer-motion-layout-animations](https://blog.maximeheckel.com/posts/framer-motion-layout-animations)
